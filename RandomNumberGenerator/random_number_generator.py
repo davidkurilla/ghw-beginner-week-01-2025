@@ -11,7 +11,7 @@ class MyRNG:
         self.n = seed
 
     def next(self):
-        self.state = (self.a * self.n + self.c) % self.m
+        self.n = (self.a * self.n + self.c) % self.m
         return self.n
 
     def rand_int(self, min_value, max_value):
