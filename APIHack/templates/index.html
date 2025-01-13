@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Hack</title>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Welcome to my API Hack!</h1>
+    <form action="/" method="post" autocomplete="off">
+        <label for="name">Pokemon Name</label>
+        <input id="name" type="text" name="name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>height</th>
+                <th>weight</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if info %}
+                <tr>
+                    <td>{{info["id"]}}</td>
+                    <td>{{info["name"]}}</td>
+                    <td>{{info["height"]}}</td>
+                    <td>{{info["weight"]}}</td>
+                </tr>
+            {% endif %}
+
+            {% if info == None %}
+                <script>
+                    alert("Pokemon not found!");
+                </script>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
